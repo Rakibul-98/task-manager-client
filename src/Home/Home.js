@@ -1,7 +1,7 @@
 import React from 'react';
-import Banner from './components/Banner/Banner';
 import './Home.css';
 import SideNav from './components/SideNav/SideNav';
+import { Outlet } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -9,8 +9,8 @@ const Home = () => {
             <div className='col-span-4 md:col-span-2'>
                 <SideNav />
             </div>
-            <div className='col-span-8 md:col-span-10'>
-                <Banner />
+            <div className='col-span-8 md:col-span-10 bg-rose-50'>
+                <Outlet/>
             </div>
         </div>
     );
