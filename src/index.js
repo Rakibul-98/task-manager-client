@@ -22,7 +22,8 @@ const router = createBrowserRouter([
       },
       {
         path:"/tasks",
-        element:<Tasks/>
+        element:<Tasks/>,
+        loader: ()=> fetch("http://localhost:5000/tasks")
       },
     ]
   }

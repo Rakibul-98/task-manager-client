@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 
 const Home = () => {
     return (
-        <div className='grid grid-cols-12 h-screen bg-rose-100 '>
+        <div className='grid grid-cols-12 min-h-screen bg-rose-100 '>
             <div className='col-span-4 md:col-span-2'>
                 <SideNav />
             </div>
