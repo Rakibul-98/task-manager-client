@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
+import TaskDetails from '../TaskDetails/TaskDetails';
 
 const TaskList = () => {
-    const tasks = useLoaderData();
+    const loadedTasks = useLoaderData();
+    const [tasks, setTasks] = useState(loadedTasks);
+    const [taskDetails, setTaskDetails] = useState({});
 
-    const handleDelete = id =>{
-        console.log(id);
+
+    const handleDelete = id => {
+        fetch(`http://localhost:5000/tasks/${id}`, {
+            method: "DELETE"
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    toast.error('Task deleted successfully')
+                    const remaining = tasks.filter(task => task._id !== id);
+                    setTasks(remaining);
+                }
+            })
+    }
+
+    const handleTaskDetails = (id) => {
+        window.task_modal.showModal();
+        const selectedTask = tasks.find(task => task._id === id);
+        setTaskDetails(selectedTask);
     }
 
     return (
@@ -14,16 +35,21 @@ const TaskList = () => {
             <ul className='bg-rose-50 py-2 px-5 rounded-b-lg'>
                 {
                     tasks.map(task =>
-                        <li key={task._id} className='bg-rose-200 my-3 ps-1 flex justify-between'>
-                            <span>{task.title} : {task.details}</span>
-                            <button 
-                            className='bg-red-500 px-2 text-white font-semibold hover:bg-red-400 hover:rotate-[180deg] duration-500'
-                            onClick={()=>handleDelete(task._id)}
-                            >X</button>
-                        </li>
+                        <div key={task._id} className='bg-rose-200 my-3 flex justify-between'>
+                            <p className='ps-2 cursor-pointer hover:bg-rose-400 hover:text-white w-full text-left tooltip' onClick={() => handleTaskDetails(task._id)} data-tip="Click to show more">{task.title} : {task.details.length > 30 ? task.details.slice(0, 30) + " ..." : task.details}</p>
+                            <div className='flex'>
+                                <p className={`${task.status ==="Pending"?"bg-yellow-300" :"bg-green-500 text-white"} px-2`}>{task.status}</p>
+                                <button
+                                    className='bg-red-500 px-2 text-white font-semibold hover:bg-red-400 lg:tooltip'
+                                    onClick={() => handleDelete(task._id)}
+                                    data-tip="delete task"
+                                >X</button></div>
+                        </div>
+
                     )
                 }
             </ul>
+            <TaskDetails task={taskDetails}></TaskDetails>
         </div>
     );
 };
