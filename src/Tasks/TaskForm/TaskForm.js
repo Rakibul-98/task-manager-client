@@ -10,7 +10,7 @@ const TaskForm = () => {
         const status = "Pending";
         const task = { title, details, status };
 
-        fetch('http://localhost:5000/tasks', {
+        fetch('https://task-manager-server-rakibul.vercel.app/tasks', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
