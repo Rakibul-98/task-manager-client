@@ -32,16 +32,15 @@ const TaskList = () => {
     return (
         <div className='p-2 bg-red-200 rounded-lg'>
             <p className='py-3'>You have <span className='font-bold text-xl'>{tasks.length}</span> {tasks.length > 1 ? "tasks" : "task"} in hand</p>
-
             {
                 tasks.length ?
-                    <ul className='bg-rose-50 py-2 px-5 rounded-b-lg'>
+                    <ul className='bg-rose-50 py-2 px-5 rounded-b-lg lg:max-h-[500px] lg:overflow-y-scroll overflow-x-clip'>
                         {
                             tasks.map(task =>
                                 <div key={task._id} className='bg-rose-200 my-3 flex justify-between'>
-                                    <p className='ps-2 cursor-pointer hover:bg-rose-400 hover:text-white w-full text-left tooltip' onClick={() => handleTaskDetails(task._id)} data-tip="Click to show more"><span className='font-bold uppercase'>{task.title}</span> : {task.details.length > 30 ? task.details.slice(0, 30) + " ..." : task.details}</p>
+                                    <p className='ps-2 cursor-pointer hover:bg-rose-400 hover:text-white w-full text-left tooltip' onClick={() => handleTaskDetails(task._id)} data-tip="Click to show more"><span className='font-bold uppercase'>{task.title}</span> : {task.details.length > 40 ? task.details.slice(0, 40) + " ..." : task.details}</p>
                                     <div className='flex'>
-                                        <p className={`${task.status === "Pending" ? "bg-yellow-300" : "bg-green-500 text-white"} px-2`}>{task.status}</p>
+                                        <p className={`${task.status === "Pending" ? "bg-yellow-300" : "bg-green-500 text-white"} flex px-2 items-center`}>{task.status}</p>
                                         <button
                                             className='bg-red-500 px-2 text-white font-semibold hover:bg-red-400 lg:tooltip'
                                             onClick={() => handleDelete(task._id)}

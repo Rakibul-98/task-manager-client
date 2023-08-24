@@ -24,7 +24,7 @@ const TaskDetails = ({ task }) => {
 
                 <h3 className="font-bold text-lg text-center">{task.title}</h3>
                 <div className="divider"></div>
-                <p>{task.details}</p>
+                <p className=' overflow-auto'>{task.details}</p>
                 <div className="divider"></div>
                 <p onClick={handleUpdateStatus} className={`${task.status==="Completed"?"bg-success disabled" : "bg-warning cursor-pointer hover:bg-amber-600"} flex items-center w-fit mx-auto py-2 px-5 rounded-md text-white font-semibold tooltip`} data-tip={task.status==="Completed"?"Already completed":"Click to complete task"}>{task.status}</p>
 

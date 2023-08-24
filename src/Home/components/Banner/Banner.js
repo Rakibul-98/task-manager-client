@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
-        <div className=''>
+        <div className='w-full'>
             <Header text="Welcome to Simple Task Manager"></Header>
             <div className='w-fit mx-auto mt-10'>
                 <img src="https://i.ibb.co/42pvcGJ/banner-removebg-preview.png" alt="" />

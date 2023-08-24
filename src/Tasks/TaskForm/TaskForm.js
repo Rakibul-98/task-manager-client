@@ -20,7 +20,6 @@ const TaskForm = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    alert('Task added successfully');
                     form.reset();
                 }
             })
