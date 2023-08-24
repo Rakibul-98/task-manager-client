@@ -9,6 +9,7 @@ import {
 import Home from './Home/Home';
 import Banner from './Home/components/Banner/Banner';
 import Tasks from './Tasks/Tasks';
+import Login from './Login/Login';
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
         path:"/tasks",
         element:<Tasks/>,
         loader: ()=> fetch("http://localhost:5000/tasks")
+      },
+      {
+        path:"/login",
+        element:<Login/>
       },
     ]
   }

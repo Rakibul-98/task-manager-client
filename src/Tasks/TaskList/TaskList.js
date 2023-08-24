@@ -34,7 +34,7 @@ const TaskList = () => {
             <p className='py-3'>You have <span className='font-bold text-xl'>{tasks.length}</span> {tasks.length > 1 ? "tasks" : "task"} in hand</p>
             {
                 tasks.length ?
-                    <ul className='bg-rose-50 py-2 px-5 rounded-b-lg lg:max-h-[500px] lg:overflow-y-scroll overflow-x-clip'>
+                    <ul className='bg-rose-50 py-2 px-5 rounded-b-lg lg:max-h-[450px] lg:overflow-y-scroll overflow-x-clip'>
                         {
                             tasks.map(task =>
                                 <div key={task._id} className='bg-rose-200 my-3 flex justify-between'>

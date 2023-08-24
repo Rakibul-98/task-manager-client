@@ -32,13 +32,13 @@ const SideNav = () => {
 
     return (
         <div className='relative'>
-            <aside className='hidden lg:block bg-rose-100 h-screen w-full mx-auto'>
+            <aside className='hidden lg:block bg-rose-100 min-h-full w-full mx-auto'>
                 <img className='h-24 w-fit mx-auto p-2' src="https://i.ibb.co/LNmSbsM/images-removebg-preview.png" alt="" />
                 <ul className='text-center'>
                     {
                         navLinks.map(link =>
-                            <li className='hover:bg-rose-500 font-bold text-xl'>
-                                <NavLink key={link.id} to={link.path} className={({ isActive }) =>
+                            <li key={link.id} className='hover:bg-rose-500 hover:text-white font-bold text-xl'>
+                                <NavLink  to={link.path} className={({ isActive }) =>
                                     isActive ? 'bg-rose-500 block py-3 text-white' : 'bg-transparent block py-3'}>
                                     {link.name}
                                 </NavLink>

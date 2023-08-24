@@ -12,9 +12,9 @@ const Home = () => {
                     reverseOrder={false}
                 />
             </div>
-            <div className='lg:grid grid-cols-6'>
+            <div className='lg:grid grid-cols-6 min-h-screen'>
                 <SideNav />
-                <div className='col-span-5 bg-rose-50'>
+                <div className='col-span-5 bg-rose-50 pb-10'>
                     <Outlet />
                 </div>
             </div>
