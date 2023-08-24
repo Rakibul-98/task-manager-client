@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       {
         path:"/tasks",
         element:<Tasks/>,
-        loader: ()=> fetch("http://localhost:5000/tasks")
+        loader: ()=> fetch("https://task-manager-server-rakibul.vercel.app/tasks")
       },
       {
         path:"/login",

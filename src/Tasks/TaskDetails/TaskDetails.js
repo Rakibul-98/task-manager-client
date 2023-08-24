@@ -5,7 +5,7 @@ const TaskDetails = ({ task }) => {
 
     const handleUpdateStatus = () =>{
         console.log(task)
-        fetch(`http://localhost:5000/tasks/${task._id}`,{
+        fetch(`https://task-manager-server-rakibul.vercel.app/tasks/${task._id}`,{
             method:"PATCH"
         })
         .then(res=>res.json())

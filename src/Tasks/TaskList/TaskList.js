@@ -10,7 +10,7 @@ const TaskList = () => {
 
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/tasks/${id}`, {
+        fetch(`https://task-manager-server-rakibul.vercel.app/tasks/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
